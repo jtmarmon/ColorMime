@@ -1,6 +1,6 @@
 ColorMime
 =========
-Demo: https://www.hackerbracket.com/hacks/show/53d6605263dfbd5f3ad0f136
+Demo: https://www.youtube.com/watch?v=yloLDmNfpDM
 
 ColorMime is a simple plugin for Sketch which allows you to quickly duplicate any Colourlovers palette in your sketch project.  Simply create a rectangle of any size, run the plugin and paste the palette URL into the prompt window.  ColorMime will automatically build the palette using the original rectangle as a sizing template.
 
