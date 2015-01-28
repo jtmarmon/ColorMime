@@ -200,7 +200,7 @@ alessndro.alignment = {
     var item_y1_pos = [[item frame] y];
     var item_y2_pos = item_y1_pos + item_height;
     var baseline_interval = alessndro.common.getArtboardBaselineInterval();
-    
+
     // Revert to the simpler method of calculating the coefficient since we don't
     // care which baseline the item is closer to as we always want to move it to the previous one
     var new_y_pos_coefficient = Math.floor(item_y2_pos / baseline_interval);
@@ -222,7 +222,7 @@ alessndro.alignment = {
     var item_y1_pos = [[item frame] y];
     var item_y2_pos = item_y1_pos + item_height;
     var baseline_interval = alessndro.common.getArtboardBaselineInterval();
-    
+
     // Revert to the simpler method of calculating the coefficient since we don't
     // care which baseline the item is closer to as we always want to move it to the previous one
     var new_y_pos_coefficient = Math.floor(item_y2_pos / baseline_interval);
@@ -251,7 +251,7 @@ alessndro.alignment = {
 
     // Since we always want to move the item to the next column, need to check
     // that the nearest column to the item is not the previous column (or the current column)
-    // We choose the next-next column if so 
+    // We choose the next-next column if so
     if ((nearest_column.start < item_x_pos) || (nearest_column.start === item_x_pos)) {
 
       // If we hit the last column, wrap around back to the first column and position the item there
@@ -271,7 +271,7 @@ alessndro.alignment = {
 
     // Since we always want to move the item to the next column, need to check
     // that the nearest column to the item is not the previous column (or the current column)
-    // We choose the next-next column if so 
+    // We choose the next-next column if so
     if ((nearest_column.end < item_x2_pos) || (nearest_column.end === item_x2_pos)) {
 
       // If we hit the last column, wrap around back to the first column and position the item there
@@ -291,7 +291,7 @@ alessndro.alignment = {
 
     // Since we always want to move the item to the previous column, need to check
     // that the nearest column to the item is not the next column (or the current column)
-    // We choose the previous-previous column if so 
+    // We choose the previous-previous column if so
     if ((nearest_column.start > item_x_pos) || (nearest_column.start === item_x_pos)) {
 
       // If the previous column is out of range, wrap back around to the last column and position the item there
@@ -311,7 +311,7 @@ alessndro.alignment = {
 
     // Since we always want to move the item to the next column, need to check
     // that the nearest column to the item is not the previous column (or the current column)
-    // We choose the next-next column if so 
+    // We choose the next-next column if so
     if ((nearest_column.end > item_x2_pos) || (nearest_column.end === item_x2_pos)) {
 
       // If the previous column is out of range, wrap back around to the last column and position the item there
@@ -374,7 +374,7 @@ alessndro.type = {
 
 alessndro.colour = {
   createColourFromHex: function(hex_string, alpha_value) {
-    return [MSColor colorWithHex: "#" + hex_string alpha: alpha_value];
+    return [MSColor colorWithSVGString: "#" + hex_string];
   },
   // Draws a palette on the artboard.
   // Pass in a base_layer which is used for sizing each colour element, and
@@ -492,7 +492,7 @@ alessndro.grid.HorizontalGrid.prototype.toString = function() {
   return grid_string += "Gutters?: " + this.hasGuttersOutside;
 };
 
-// Creates Column objects that together represent the horizontal 
+// Creates Column objects that together represent the horizontal
 // grid set using View > Grid Settings > Layout
 // Returns an array containing all Columns
 alessndro.grid.HorizontalGrid.prototype.convertSketchGridToColumns = function() {
@@ -554,7 +554,7 @@ alessndro.grid.HorizontalGrid.prototype.columnEndsToArray = function() {
 // 'Start' gridline is therefore the left edge
 alessndro.grid.HorizontalGrid.prototype.findNearestStartGridlineIndex = function(item) {
     var start_positions = this.columnStartsToArray();
-    
+
     // The x-coordinate of the item we want to find the closest gridline to
     var item_x_pos = [[item frame] x];
 
