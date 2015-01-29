@@ -7,17 +7,23 @@ if([selection count] != 0) {
 
   // Use as first colour square
   var base_colour_layer = selection[0]
-  
+
   var palatteURL = [doc askForUserInput:'Palatte URL:' initialValue:'Enter a ColourLovers Palatte URL']
   var palatteURLParts = palatteURL.split('/');
   var palatteID = palatteURLParts[4];
-  [doc showMessage:palatteID];
+
   var response = alessndro.network.makeRequest("http://www.colourlovers.com/api/palette/" + palatteID + "?format=json", "GET")
 
-  var palette = alessndro.colourlovers.createPaletteFromJSON(response)
+  response = JSON.parse(response);
+  var colors = [];
+  var palette = response[0]["colors"];
+  for(var i = 0; i < palette.length; i++) {
+    var colour = alessndro.colour.createColourFromHex(palette[i], 1.0);
+    colors.push(colour);
+  }
 
-  alessndro.colour.drawColourPalette(base_colour_layer, palette)
-} 
+  alessndro.colour.drawColourPalette(base_colour_layer, colors)
+}
 else {
   var app = [NSApplication sharedApplication]
   [app displayDialog:"You must first create a base shape layer. Each colour in the palette have the same dimensions as this base layer." withTitle:"Error"]
